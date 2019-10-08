@@ -2,6 +2,8 @@ http://bit.ly/okta-dev-workshop
 
 # OAuth 2.0 Exercise
 
+- Before starting, import the "API Access Management (OAuth 2.0)" collection from the Okta [Postman collections](https://developer.okta.com/docs/reference/postman-collections/) page.
+
 ## Authorization Code Flow
 
 **In Okta:**
