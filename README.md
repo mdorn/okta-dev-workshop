@@ -34,7 +34,7 @@ Table of Contents
 
 - Create a new "Web" Application
 - Go to Applications > Add Application > Web
-    - Add a login redirect URI: https://oidcdebugger.com/debug
+    - Add a login redirect URI: `https://oidcdebugger.com/debug`
     - Ensure the "Authorization Code" grant type is selected.
     - Copy the Client ID and Client secret to a handy location.
 - Get the Authorization Server information.
@@ -89,7 +89,7 @@ Now:
 - Define a custom scope in your authorization server:
     - Go to API > Authorization Servers > default > Scopes > Add Scope
     - Give the scope a name `messages` and add a description (e.g. "Access messages")
-- Repeat the steps above to get an access token, starting with the OIDC Debugger tool, this time add the "messages" scope to "Scopes" in the debugger.
+- Repeat the steps above to get an access token, starting with the OIDC Debugger tool, this time add the `messages` scope to "Scopes" in the debugger.
 - Inspect the token and notice the scope was returned.
 
 > **NOTE:** I can request this scope because I have an extremely permissive Default Access Policy for my Authorization server.  In a real-world scenario I might restrict access to this scope based on Group memberships (e.g. to users who belong to a "Messages" group) by adding a rule to the default Access Policy for my default Authorization Server.
