@@ -239,6 +239,8 @@ dotnet run
 
 - Your API service is now running at http://localhost:8000
 
+> **NOTE**: In a real world scenario, the resource server would want to validate the token for the existence of the `messages` scope before granting access, either via application code or via an [API Gateway](https://okta-api-am.herokuapp.com/). The Sample App may or may not be doing this for you.
+
 ## Set up React front end app
 
 **In Okta:**
@@ -268,7 +270,9 @@ npm start
 ```
 
 - Your app is now running at http://localhost:8080
-- Login and click on "messages" to see your sending an access token to the API.
+- Login and click on "messages" to see your app sending an access token to the API.
+
+> **NOTE**: If you open Chrome Developer Tools (or equivalent in another browser) you can view the Network traffic and see that the access token is being sent as the `Bearer: ` value in the `Authorization` header. And view the JSON response returned from the resource server.
 
 # Hooks Exercise
 
