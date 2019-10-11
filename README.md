@@ -272,7 +272,7 @@ npm start
 - Your app is now running at http://localhost:8080
 - Login and click on "messages" to see your app sending an access token to the API.
 
-> **NOTE**: If you open Chrome Developer Tools (or equivalent in another browser) you can view the Network traffic and see that the access token is being sent as the `Bearer: ` value in the `Authorization` header. And view the JSON response returned from the resource server.
+> **NOTE**: If you open Chrome Developer Tools (or equivalent in another browser) you can view the Network traffic and see that the access token is being sent as the `Bearer: ` value in the `Authorization` header, and view the JSON response returned from the resource server.
 
 # Hooks Exercise
 
