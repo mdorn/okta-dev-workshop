@@ -7,6 +7,11 @@ Prerequisites:
 - [Create a free Glitch account](https://glitch.com/)
 - Ensure you have a [Git](https://www.git-scm.com/) client installed
 
+Sample app prerequisites:
+
+- Install [.NET Core](https://dotnet.microsoft.com/download)
+- Install [Node.js](https://nodejs.org/en/download/)
+
 Table of Contents
 =================
 
@@ -37,6 +42,7 @@ Table of Contents
     - Add a login redirect URI: `https://oidcdebugger.com/debug`
     - Ensure the "Authorization Code" grant type is selected.
     - Copy the Client ID and Client secret to a handy location.
+    - Click on the "Assignments" tab, then Assign > Assign to Groups > choose "Everyone"
 - Get the Authorization Server information.
     - Go to API > Authorization Servers
     - Copy the Issuer URI for your "default" authorization server to a handy location. It looks something like this: `https://dev-120098.okta.com/oauth2/default`
@@ -54,7 +60,7 @@ Table of Contents
         - Click "Send request"
     - Copy the "authorization code" to a convenient location.
 
-> **NOTE:** this code will expire so if you don’t perform the following steps soon, you may have to repeat the steps above to generate a new code.
+> **NOTE:** this code will expire in a minute so if you don’t perform the following steps soon, you may have to repeat the steps above to generate a new code.
 
 ### Authorization Code Exchange
 
@@ -237,7 +243,7 @@ cd okta-aspnetcore-webapi-example
 dotnet run
 ```
 
-- Your API service is now running at http://localhost:8000
+- Your API service is now running at http://localhost:8000 - the relevant API endpoint is http://localhost:8000/api/messages
 
 > **NOTE**: In a real world scenario, the resource server would want to validate the token for the existence of the `messages` scope before granting access, either via application code or via an [API Gateway](https://okta-api-am.herokuapp.com/). The Sample App may or may not be doing this for you.
 
