@@ -3,6 +3,8 @@
 - Before starting, import the "API Access Management (OAuth 2.0)" collection from the Okta [Postman collections](https://developer.okta.com/docs/reference/postman-collections/) page.
 - You can visualize the flow we'll be using [here](https://developer.okta.com/docs/concepts/auth-overview/#authorization-code-flow).
 
+---
+
 ## Authorization Code Flow
 
 **In Okta:**
@@ -32,6 +34,8 @@
 
 > **NOTE:** this code will expire in a minute so if you don’t perform the following steps soon, you may have to repeat the steps above to generate a new code.
 
+---
+
 ### Authorization Code Exchange
 
 **In Postman**
@@ -49,6 +53,8 @@ Now:
 - Click "Send"
 - Right-click the access token value from the response and set the the `accessToken` value in your environment.  Also copy it to your clipboard.
 
+---
+
 ## Token Introspection
 
 **In Postman**:
@@ -57,6 +63,8 @@ Now:
 - Click "Send"
 - Note the token has been decoded and validated by Okta. In production you're more likely to validate the token with your own application code. See [Validate Access Tokens](https://developer.okta.com/docs/guides/validate-access-tokens/overview/) in the developer documentaiton.
 - Note for development purposes you can also inspect the token in a tool like https://jsonwebtoken.io  -- try pasting the token into that tool.
+
+---
 
 ## Custom Scopes
 
@@ -70,9 +78,13 @@ Now:
 
 > **NOTE:** I can request this scope because I have an extremely permissive Default Access Policy for my Authorization server.  In a real-world scenario I might restrict access to this scope based on Group memberships (e.g. to users who belong to a "Messages" group) by adding a rule to the default Access Policy for my default Authorization Server.
 
+---
+
 ## PKCE Flow
 
 TODO
+
+---
 
 # Okta Sign-In Widget Exercise
 
@@ -180,6 +192,8 @@ if (oktaSignIn.token.hasTokensInUrl()) {
 - Notice you've been logged in as your user, but look at the console for the access token; note that tokens have been stored in Developer Tools > Application > Local Storage
 - Go to https://www.jsonwebtoken.io/ and paste the access token to inspect it.
 
+---
+
 # Sample App Exercise
 
 > **NOTE:** The purpose of this exercise is to show an example front-end application interacting with an API backend.  In this example, React is used as the front-end example and .NET Core for the backend, but you could also use other Sample Apps for other platforms (e.g. Angular, Node.js, Java, etc.)
@@ -194,6 +208,8 @@ References:
 - https://developer.okta.com/docs/
 - https://github.com/okta/samples-aspnetcore
 - https://github.com/okta/samples-js-react
+
+---
 
 ## Set up .NET resource server app
 
@@ -216,6 +232,8 @@ dotnet run
 - Your API service is now running at http://localhost:8000 - the relevant API endpoint is http://localhost:8000/api/messages
 
 > **NOTE**: In a real world scenario, the resource server would want to validate the token for the existence of the `messages` scope before granting access, either via application code or via an [API Gateway](https://okta-api-am.herokuapp.com/). The Sample App may or may not be doing this for you.
+
+---
 
 ## Set up React front end app
 
@@ -249,6 +267,8 @@ npm start
 - Login and click on "messages" to see your app sending an access token to the API.
 
 > **NOTE**: If you open Chrome Developer Tools (or equivalent in another browser) you can view the Network traffic and see that the access token is being sent as the `Bearer: ` value in the `Authorization` header, and view the JSON response returned from the resource server.
+
+---
 
 # Hooks Exercise
 
