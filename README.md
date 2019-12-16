@@ -9,8 +9,8 @@ Prerequisites:
 
 Sample app prerequisites:
 
-- Install [.NET Core](https://dotnet.microsoft.com/download)
-- Install [Node.js](https://nodejs.org/en/download/)
+- Install [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
+- Install [Node.js](https://nodejs.org/en/download/) (version 12 as of this writing)
 
 Table of Contents
 =================
@@ -77,13 +77,13 @@ Now:
 - Find the "Get Access Token with Code" request in your Postman Collections.
 - In the "Body" tab, replace the "code" value with the authorization code returned in the previous step.
 - Click "Send"
-- Right-click the access token value from the response and set the the `accessToken` value in your environment.  Also copy it to your clipboard.
+- Right-click the access token value from the response (the value between quotes) and set the the `accessToken` value in your environment.  Also copy it to your clipboard.
 
 ## Token Introspection
 
 **In Postman**:
 
-- Find the "Inrospect Token" request in your Postman Collections.
+- Find the "Introspect Token" request in your Postman Collections.
 - Click "Send"
 - Note the token has been decoded and validated by Okta. In production you're more likely to validate the token with your own application code. See [Validate Access Tokens](https://developer.okta.com/docs/guides/validate-access-tokens/overview/) in the developer documentaiton.
 - Note for development purposes you can also inspect the token in a tool like https://jsonwebtoken.io  -- try pasting the token into that tool.
@@ -234,8 +234,8 @@ git clone https://github.com/okta/samples-aspnetcore
 cd samples-aspnetcore/resource-server
 ```
 
-- Open your IDE and:
-    - change `launchSettings.json` to use `http://localhost:8000`
+- Open the `resource-server/okta-aspnetcore-webapi-example` path in your IDE and:
+    - change `Properties/launchSettings.json`: the `applicationUrl` setting at line 27 should use `http://localhost:8000`
     - change `appsettings.json` to use your Okta domain: e.g. `https://dev-120098.okta.com`
 
 ```bash
@@ -266,7 +266,7 @@ cd samples-js-react/custom-login
 npm install
 ```
 
-Create a `.env` file in the root of the project directory with the following variables populated appropriately:
+Create a `.env` in the `custom-login` directory with the following variables populated with the values for environment:
 
     ISSUER=https://SUBDOMAIN.okta.com/oauth2/default
     CLIENT_ID=YOUR_PKCE_CLIENT_ID
