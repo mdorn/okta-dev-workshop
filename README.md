@@ -9,7 +9,6 @@ Prerequisites:
 
 Sample app prerequisites:
 
-- Install [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 - Install [Node.js](https://nodejs.org/en/download/) (version 12 as of this writing)
 
 Table of Contents
@@ -212,42 +211,17 @@ if (oktaSignIn.token.hasTokensInUrl()) {
 
 # Sample App Exercise
 
-> **NOTE:** The purpose of this exercise is to show an example front-end application interacting with an API backend.  In this example, React is used as the front-end example and .NET Core for the backend, but you could also use other Sample Apps for other platforms (e.g. Angular, Node.js, Java, etc.)
+> **NOTE:** The purpose of this exercise is to show an example front-end application interacting with an API backend.  In this example, React is used as the front-end example and Node.js/Express for the backend, but you could also use other Sample Apps for other platforms (e.g. Angular, .NET, Java, etc.)
 
-Prerequisites:
+## Prerequisites
 
-- Ensure [.NET Core](https://dotnet.microsoft.com/download) is installed
-- Ensure [Node.js](https://nodejs.org/en/download/) is installed
+- Ensure [Node.js](https://nodejs.org/en/download/) is installed (version 12 as of this writing).
 
 References:
 
 - https://developer.okta.com/docs/
-- https://github.com/okta/samples-aspnetcore
+- https://github.com/okta/samples-nodejs-express-4
 - https://github.com/okta/samples-js-react
-
-## Set up .NET resource server app
-
-**In a terminal window:**
-
-```bash
-git clone https://github.com/okta/samples-aspnetcore
-cd samples-aspnetcore/resource-server
-```
-
-- Open the `resource-server/okta-aspnetcore-webapi-example` path in your IDE and:
-    - change `Properties/launchSettings.json`: the `applicationUrl` setting at line 27 should use `http://localhost:8000`
-    - change `appsettings.json` to use your Okta domain: e.g. `https://dev-120098.okta.com`
-
-```bash
-cd okta-aspnetcore-webapi-example
-dotnet run
-```
-
-- Your API service is now running at http://localhost:8000 - the relevant API endpoint is http://localhost:8000/api/messages
-
-> **NOTE**: In a real world scenario, the resource server would want to validate the token for the existence of the `messages` scope before granting access, either via application code or via an [API Gateway](https://okta-api-am.herokuapp.com/). The Sample App may or may not be doing this for you.
-
-## Set up React front end app
 
 **In Okta:**
 
@@ -257,6 +231,33 @@ dotnet run
     - Ensure redirect URI is: http://localhost:8080/implicit/callback
     - Ensure "Use PKCE" is enabled
     - Copy the Client ID to a handy location.
+
+## Set up Node.js resource server app
+
+**In a terminal window:**
+
+```bash
+git clone https://github.com/okta/samples-nodejs-express-4
+cd samples-nodejs-express-4/
+npm install
+```
+
+- Create a file called `testenv` in the root directory of the project and populate it with the following values:
+
+```
+ISSUER=https://SUBDOMAIN.okta.com/oauth2/default
+SPA_CLIENT_ID=YOUR_PKCE_CLIENT_ID
+```
+
+```bash
+npm run resource-server
+```
+
+- Your API service is now running at http://localhost:8000 - the relevant API endpoint is http://localhost:8000/api/messages
+
+> **NOTE**: In a real world scenario, the resource server would want to validate the token for the existence of the `messages` scope before granting access (among [other validations](https://developer.okta.com/docs/guides/validate-access-tokens/go/overview/)), either via application code or via an [API Gateway](https://okta-api-am.herokuapp.com/). The Sample App may or may not be doing this for you.
+
+## Set up React front end app
 
 **In a new terminal window:**
 
