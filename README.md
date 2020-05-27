@@ -249,6 +249,8 @@ ISSUER=https://SUBDOMAIN.okta.com/oauth2/default
 SPA_CLIENT_ID=YOUR_PKCE_CLIENT_ID
 ```
 
+Start the server:
+
 ```bash
 npm run resource-server
 ```
