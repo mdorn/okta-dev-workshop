@@ -274,6 +274,8 @@ Create a `.env` in the `custom-login` directory with the following variables pop
     ISSUER=https://SUBDOMAIN.okta.com/oauth2/default
     CLIENT_ID=YOUR_PKCE_CLIENT_ID
 
+Start the app server:
+
 ```bash
 npm start
 ```
