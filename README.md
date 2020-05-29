@@ -117,6 +117,7 @@ TODO
     - Add your Glitch app URL as the login redirect URI: e.g. `https://zinc-frown.glitch.me` (NOTE: this is normally a particular URL in your app that will handle the auth codes and tokens, in this case for simplicity it's just the root path.)
     - Ensure the "Implicit" grant types are selected.
     - Copy the Client ID to a handy location.
+    - Click on the "Assignments" tab, then Assign > Assign to Groups > choose "Everyone"
 -  Add a trusted origin:
     - Go to API > Trusted Origins > Add Origin, add your Glitch app URL as a trusted origin URL for both CORS and Redirect.
 
